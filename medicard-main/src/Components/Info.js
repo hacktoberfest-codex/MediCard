@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import InformationCard from "./InformationCard";
 import { faHeartPulse, faTruckMedical, faTooth } from "@fortawesome/free-solid-svg-icons";
 import "../Styles/Info.css";
@@ -8,27 +9,31 @@ function Info() {
     <div className="info-section" id="services">
       <div className="info-title-content">
         <div style={{ display: 'flex', justifyContent: 'space-around' }} >
-          <div className="about-text-step" style={{ border: '1px solid black', borderRadius: '0.5rem', padding: '2rem', margin: '1rem' }} >
-            <p className="about-text-sTitle">
+          <Link to="http://localhost:3000/" style={{ textDecoration: 'none' }} >
+            <div className="about-text-step" style={{ border: '1px solid black', borderRadius: '0.5rem', padding: '2rem', margin: '1rem' }} >
+              <p className="about-text-sTitle">
 
-              <span>
-                Patient / User
-              </span>
-            </p>
-            <p className="about-text-description">
-              Discover our comprehensive medicard services for all your medical needs, prioritizing your health and well-being
-            </p>
-          </div>
-          <div className="about-text-step" style={{ border: '1px solid black', borderRadius: '0.5rem', padding: '2rem', margin: '1rem' }} >
-            <p className="about-text-sTitle">
-              <span>
-                 Doctors / Provider
-              </span>
-            </p>
-            <p className="about-text-description">
-              We are dedicated to safeguarding your health, aiding recovery from all medical conditions
-            </p>
-          </div>
+                <span>
+                  Patient / User
+                </span>
+              </p>
+              <p className="about-text-description">
+                Discover our comprehensive medicard services for all your medical needs, prioritizing your health and well-being
+              </p>
+            </div>
+          </Link>
+          <Link to="http://localhost:8000/" style={{textDecoration: 'none'}} >
+            <div className="about-text-step" style={{ border: '1px solid black', borderRadius: '0.5rem', padding: '2rem', margin: '1rem' }} >
+              <p className="about-text-sTitle">
+                <span>
+                  Doctors / Provider
+                </span>
+              </p>
+              <p className="about-text-description">
+                We are dedicated to safeguarding your health, aiding recovery from all medical conditions
+              </p>
+            </div>
+          </Link>
         </div>
       </div>
 
