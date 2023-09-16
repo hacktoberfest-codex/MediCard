@@ -30,15 +30,14 @@ function Navbar() {
           </a>
         </li>
         <li>
-          <a href="#about" className="navbar-links">
-            About
-          </a>
+          <Link to="http://localhost:3000/pages/login/" style={{textDecoration: 'none'}} >
+            Patient
+          </Link>
         </li>
         <li>
-          Patient
-        </li>
-        <li>
-          Doctors
+          <Link to="http://localhost:8000/">
+            Doctors
+          </Link>
         </li>
       </ul>
 
@@ -63,11 +62,15 @@ function Navbar() {
               About
             </a>
           </li>
-          <li>
+          <a href='http://localhost:3000/' >
+            <li>
               Patient
-          </li>
+            </li>
+          </a>
           <li>
+            <a href='http://localhost:8000/' style={{ cursur: 'pointer' }} >
               Doctors
+            </a>
           </li>
         </ul>
       </div>
