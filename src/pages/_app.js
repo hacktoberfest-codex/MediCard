@@ -1,3 +1,6 @@
+// ** next auth
+import { AuthProvider } from 'src/auth/authContext'
+
 // ** Next Imports
 import Head from 'next/head'
 import { Router } from 'next/router'
@@ -60,7 +63,7 @@ const App = props => {
         <meta name='keywords' content='' />
         <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
-
+      <AuthProvider>
       <SettingsProvider>
         <SettingsConsumer>
           {({ settings }) => {
@@ -68,6 +71,7 @@ const App = props => {
           }}
         </SettingsConsumer>
       </SettingsProvider>
+      </AuthProvider>
     </CacheProvider>
   )
 }
