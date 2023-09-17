@@ -1,10 +1,9 @@
 # Team-8
 
-Welcome to MediCard.
+<h2>MediCard</h2>
+<small>EFFICIENT HEALTHCARE ACCESS</small>
 
-<h1>EFFICIENT HEALTHCARE ACCESS</h1>
-
-<p>Efficient Healthcare Access is a web application that leverages modern technologies to improve the healthcare experience for both patients and doctors. This README file provides an overview of the project, its features, and the libraries used in its development.</p>
+<p>MediCard is a web application that leverages modern technologies to improve the healthcare experience for both patients and doctors. This README file provides an overview of the project, its features, and the libraries used in its development.</p>
 
 <h2>Features</h2>
 
