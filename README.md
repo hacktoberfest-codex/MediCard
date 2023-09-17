@@ -122,3 +122,11 @@ pnpm run dev <-- if pnpm is installed -->
 
 It start script is used to execute the defined file in it without typing its execution command.
 For more scripts checkout package.json file
+
+<h2>Command to execute the OCR Model</h2>
+
+Run DOCKER container with the following commands to access the CNN Model for extracting data from the Images:
+
+```
+docker run -p 4000:80 text-orm-model.py text-orm-model
+```
