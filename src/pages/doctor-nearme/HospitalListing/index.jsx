@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // ** mui componenets
 import PropTypes from 'prop-types';
@@ -73,6 +73,14 @@ const HospitalListing = () => {
       city: ''
     }
   ]);
+  const [ , setLabDetailsNearMe] = useState([
+    {
+      address: '',
+      hamlet: '',
+      postcode: '',
+      state:''
+    }
+  ]);
 
   const [value, setValue] = useState(0);
   const [ansArray, setAnsArray] = useState([]);
@@ -85,8 +93,7 @@ const HospitalListing = () => {
     try {
       const response = await getMedicalDetailsNearMe();
 
-      setMedicalDetailsNearMe(response);
-      console.log(response.length);
+      setMedicalDetailsNearMe(response)
 
       // Initialize an array to store ans values
       const ansValues = [];
@@ -109,7 +116,8 @@ const HospitalListing = () => {
       console.error('Error while fetching getMedicalDetailsNearMe', error);
     }
   };
-  const handleGetMedicalDoctorNearMe = async () => {
+
+  const handleGetPharmacyNearMe = async () => {
     try {
       const response = await getPharmacyNearMe();
 
@@ -138,14 +146,25 @@ const HospitalListing = () => {
     }
   };
 
+  const handleInitialTabLoad = () => {
+    if (value === 0) {
+      handleGetMedicalDetailsNearMe();
+    } else if (value === 1) {
+      handleGetPharmacyNearMe();
+    }
+  };
+
+  useEffect(() => {
+    // Call the appropriate function when the component mounts
+    handleInitialTabLoad();
+  }, [value]); 
+
   const tabHead = [
     {
-      clickToGo: handleGetMedicalDetailsNearMe,
       textLabel: 'Medical Details Near Me',
     },
     {
-      clickToGo: handleGetMedicalDoctorNearMe,
-      textLabel: ' Doctor Near Me',
+      textLabel: ' lab Near Me',
     },
   ];
   return (
@@ -159,11 +178,21 @@ const HospitalListing = () => {
           aria-label="scrollable auto tabs example"
         >
           {tabHead.map((tab, index) => (
-            <Tab key={index} onClick={tab.clickToGo} label={tab.textLabel} />
+            <Tab key={index} label={tab.textLabel} />
           ))}
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
+        
+        {ansArray.map((ansItem, index) => (
+          <div style={{border: '2px solid black', padding:"5px", margin:'5px' }} key={index}>
+            <p>Address: {ansItem.address}</p>
+            <p>Postcode: {ansItem.postcode}</p>
+            <p>City: {ansItem.city}</p>
+          </div>
+        ))}
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={1}>
         
         {ansArray.map((ansItem, index) => (
           <div style={{border: '2px solid black', padding:"5px", margin:'5px' }} key={index}>

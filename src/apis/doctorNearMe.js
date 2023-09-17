@@ -127,7 +127,10 @@ export const getPharmacyNearMe = async () => {
     }
 
     const result = await response.json();
+    console.log('hey')
+    console.log(result)
     const data = result.features
+    console.log(data)
 
     return data;
 
