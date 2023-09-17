@@ -28,7 +28,7 @@ const Trophy = () => {
 
   return (
     <Card sx={{ position: 'relative' }}>
-      <CardContent>
+      {/* <CardContent>
         <Typography variant='h6'>Congratulations John! 🥳</Typography>
         <Typography variant='body2' sx={{ letterSpacing: '0.25px' }}>
           Best seller of the month
@@ -41,7 +41,7 @@ const Trophy = () => {
         </Button>
         <TriangleImg alt='triangle background' src={`/images/misc/${imageSrc}`} />
         <TrophyImg alt='trophy' src='/images/misc/trophy.png' />
-      </CardContent>
+      </CardContent> */}
     </Card>
   )
 }
