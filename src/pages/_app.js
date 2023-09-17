@@ -1,5 +1,5 @@
 // ** next auth
-import { AuthProvider } from 'src/auth/authContext'
+// import { AuthProvider } from 'src/auth/authContext'
 
 // ** Next Imports
 import Head from 'next/head'
@@ -63,7 +63,7 @@ const App = props => {
         <meta name='keywords' content='' />
         <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
-      <AuthProvider>
+      {/* <AuthProvider> */}
       <SettingsProvider>
         <SettingsConsumer>
           {({ settings }) => {
@@ -71,7 +71,7 @@ const App = props => {
           }}
         </SettingsConsumer>
       </SettingsProvider>
-      </AuthProvider>
+      {/* </AuthProvider> */}
     </CacheProvider>
   )
 }

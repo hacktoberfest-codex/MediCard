@@ -62,6 +62,7 @@ CustomTabPanel.propTypes = {
 };
 
 const HospitalListing = () => {
+ 
   let ans;
 
   // ** states
@@ -108,11 +109,43 @@ const HospitalListing = () => {
       console.error('Error while fetching getMedicalDetailsNearMe', error);
     }
   };
+  const handleGetMedicalDoctorNearMe = async () => {
+    try {
+      const response = await getPharmacyNearMe();
+
+      setMedicalDetailsNearMe(response);
+      console.log(response.length);
+
+      // Initialize an array to store ans values
+      const ansValues = [];
+
+      for (let i = 0; i < response.length; i++) {
+        const newresponse = response[i].properties;
+
+        // Push each ans object to ansValues
+        ansValues.push({
+          address: newresponse.address_line2,
+          postcode: newresponse.postcode,
+          city: newresponse.city
+        });
+      }
+
+      // Update the state with ansValues
+      setAnsArray(ansValues);
+
+    } catch (error) {
+      console.error('Error while fetching getMedicalDetailsNearMe', error);
+    }
+  };
 
   const tabHead = [
     {
       clickToGo: handleGetMedicalDetailsNearMe,
       textLabel: 'Medical Details Near Me',
+    },
+    {
+      clickToGo: handleGetMedicalDoctorNearMe,
+      textLabel: ' Doctor Near Me',
     },
   ];
   return (
@@ -133,7 +166,7 @@ const HospitalListing = () => {
       <CustomTabPanel value={value} index={0}>
         
         {ansArray.map((ansItem, index) => (
-          <div key={index}>
+          <div style={{border: '2px solid black', padding:"5px", margin:'5px' }} key={index}>
             <p>Address: {ansItem.address}</p>
             <p>Postcode: {ansItem.postcode}</p>
             <p>City: {ansItem.city}</p>

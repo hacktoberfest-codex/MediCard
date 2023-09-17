@@ -71,7 +71,7 @@ const renderStats = () => {
 const StatisticsCard = () => {
   return (
     <Card>
-      <CardHeader
+      {/* <CardHeader
         title='Statistics Card'
         action={
           <IconButton size='small' aria-label='settings' className='card-more-options' sx={{ color: 'text.secondary' }}>
@@ -98,7 +98,7 @@ const StatisticsCard = () => {
         <Grid container spacing={[5, 0]}>
           {renderStats()}
         </Grid>
-      </CardContent>
+      </CardContent> */}
     </Card>
   )
 }
